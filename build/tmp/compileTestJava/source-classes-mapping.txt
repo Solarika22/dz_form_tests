@@ -1,2 +1,2 @@
-Tests/TestForm.java
- Tests.TestForm
+tests/TestForm.java
+ tests.TestForm
