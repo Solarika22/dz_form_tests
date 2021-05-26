@@ -1,12 +1,9 @@
 package testsite;
-
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -14,9 +11,8 @@ import static com.codeborne.selenide.Selenide.open;
 public class TestForm {
     static Logger log = LoggerFactory.getLogger(TestForm.class);
     @BeforeAll
-    static void  setConfig()
+    static void setConfig()
     {
-        log.info("@BeforeAll");
         Configuration.startMaximized = true;
     }
 
@@ -45,7 +41,6 @@ public class TestForm {
         $("#currentAddress").setValue(currentAddress);
         $("#react-select-3-input").setValue("d").pressEnter();
         $("#react-select-4-input").setValue("Ja").pressEnter();
-        $("#submit").click();
 
         $(".table-responsive").shouldHave(text(firstName), text(userEmail),
                 text("Male"), text(userNumber), text("25 May,1992"), text(subjectsInput),
