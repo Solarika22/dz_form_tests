@@ -1,2 +1,0 @@
-com/solar/TestForm.java
- com.solar.TestForm
