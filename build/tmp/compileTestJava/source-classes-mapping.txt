@@ -1,2 +1,2 @@
-testsite/TestForm.java
- testsite.TestForm
+com/solar/TestForm.java
+ com.solar.TestForm

@@ -1,12 +1,11 @@
-package testsite;
+package com.solar;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TestForm {
     static Logger log = LoggerFactory.getLogger(TestForm.class);
@@ -22,6 +21,7 @@ public class TestForm {
     String userNumber= "1234567890";
     String subjectsInput="M";
     String currentAddress="Moscow, Russia";
+    String picture = "1.png";
 
     @Test
     void selenideTestForms() {
@@ -38,13 +38,14 @@ public class TestForm {
         $("[aria-label='Choose Monday, May 25th, 1992']").click();
         $("#subjectsInput").setValue(subjectsInput).pressEnter();
         $("[for='hobbies-checkbox-1']").click();
+        $("#uploadPicture").uploadFromClasspath(picture);
         $("#currentAddress").setValue(currentAddress);
         $("#react-select-3-input").setValue("d").pressEnter();
         $("#react-select-4-input").setValue("Ja").pressEnter();
 
         $(".table-responsive").shouldHave(text(firstName), text(userEmail),
                 text("Male"), text(userNumber), text("25 May,1992"), text(subjectsInput),
-                text("Sports"), text(currentAddress));
+                text("Sports"), text(currentAddress), text(picture));
 
     }
 
